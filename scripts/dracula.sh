@@ -128,6 +128,12 @@ main()
 
   for plugin in "${plugins[@]}"; do
 
+    if [ $plugin = "aws" ]; then
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-aws-colors" "dark_purple white")
+      tmux set-option -g status-right-length 250
+      script="#($current_dir/aws_account.sh)"
+    fi
+
     if [ $plugin = "git" ]; then
       IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
       tmux set-option -g status-right-length 250
