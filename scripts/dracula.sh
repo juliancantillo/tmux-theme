@@ -158,7 +158,6 @@ main()
       script="#($current_dir/fossil.sh)"
 
     elif [ $plugin = "git" ]; then
-    if [ $plugin = "git" ]; then
       IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/git.sh)"
